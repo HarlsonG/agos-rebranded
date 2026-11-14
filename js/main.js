@@ -56,7 +56,7 @@ const A = [
   [
     "Operations Center",
     "AGOS Admin",
-    "A secure command center for LGU operators to monitor live conditions, inspect sensor and detection history, coordinate responders, and authorize evacuation actions.",
+    "A secure command center for LGU teams to monitor water levels and camera insights, review history, and coordinate responders and evacuations.",
     [
       "Live risk and water monitoring",
       "Responder and evacuation coordination",
@@ -64,11 +64,12 @@ const A = [
     ],
     ["Dashboard", "Reading logs", "Sensor", "Responders"],
     "Open AGOS Admin",
+    "https://agos-admin.vercel.app/auth/login",
   ],
   [
     "Field Response",
     "AGOS Patrol",
-    "A responder-focused mobile app that turns live waterway intelligence into clear field status, targeted alerts, and accountable response actions wherever patrol teams are deployed.",
+    "A field app for live waterway conditions, targeted alerts, and accountable response actions for deployed patrol teams.",
     [
       "Mobile-first live field monitoring",
       "Targeted alerts and acknowledgements",
@@ -76,11 +77,12 @@ const A = [
     ],
     ["Home", "Alerts", "Profile"],
     "Open AGOS Patrol",
+    "https://agos-patrol.vercel.app/",
   ],
   [
     "Community Safety",
     "AGOS Advisory",
-    "An anonymous resident-facing app that translates live waterway intelligence into plain-language safety guidance, official alerts, and routes to nearby evacuation centers.",
+    "An anonymous app for residents with clear flood guidance, official alerts, and routes to nearby evacuation centers.",
     [
       "Clear, color-coded safety guidance",
       "Anonymous official flood and evacuation alerts",
@@ -88,6 +90,7 @@ const A = [
     ],
     ["Status", "Alerts", "Map", "Profile", "Safety"],
     "Open AGOS Advisory",
+    "https://agos-advisory.vercel.app/install",
   ],
 ];
 const F = [
@@ -105,8 +108,7 @@ const F = [
   ],
   [
     "Predictive Analysis Engine",
-    "AGOS fuses live sensor data, computer vision results, and OpenMeteo weather forecasts to calculate risk scores. Daily summaries are analyzed by the Groq LLM via SSE streaming to provide predictive text analysis.",
-    "Powered by Groq",
+    "Powered by Groq, AGOS combines sensor readings, vision results, and weather forecasts into risk scores and predictive summaries.",
   ],
 ];
 const P = [
@@ -137,11 +139,11 @@ $("#pg").innerHTML = A.map((a, i) => {
     i === 0
       ? `<div class="laptop-mock" aria-hidden="true"><div class="laptop-screen"><div class="laptop-screen-slot" data-preview-slot="agos-admin"><img src="assets/agos-admin-dashboard.png" alt=""></div></div><div class="laptop-base"></div></div>`
       : `<div class="phone-mock" aria-hidden="true"><div class="phone-screen"><div class="phone-screen-slot" data-preview-slot="${i === 1 ? "agos-patrol" : "agos-advisory"}"><img src="assets/agos-${i === 1 ? "patrol" : "advisory"}-screen.png" alt=""></div></div></div><img src="${LOGO}" alt="" aria-hidden="true">`;
-  return `<article class="pc rv" data-d="${i * 0.09}"><div class="pm"><span>${a[0]} — 0${i + 1}</span><i>↗</i></div><div class="pb"><h3>${a[1]}</h3><p>${a[2]}</p><div class="tg">${a[3].map((x) => `<span>${x}</span>`).join("")}</div><div class="tg s">${a[4].map((x) => `<span>${x}</span>`).join("")}</div><div><a class="pill l" href="#">${a[5]} <i>↗</i></a></div></div>${preview}</article>`;
+  return `<article class="pc rv" data-d="${i * 0.09}"><div class="pm"><span>${a[0]} — 0${i + 1}</span></div><div class="pb"><h3>${a[1]}</h3><p>${a[2]}</p><div class="tg">${a[3].map((x) => `<span>${x}</span>`).join("")}</div><div class="tg s">${a[4].map((x) => `<span>${x}</span>`).join("")}</div><div><a class="pill l" href="${a[6]}" target="_blank" rel="noopener noreferrer">${a[5]} <i aria-hidden="true">↗</i></a></div></div>${preview}</article>`;
 }).join("");
 $("#sr").innerHTML = F.map(
   (f, i) =>
-    `<li class="rv" data-d="${i * 0.08}"><a href="#features"><span class="n">0${i + 1}</span><div class="tx"><h3>${f[2] ? `<small>${f[2]}</small><br>` : ""}${f[0]}</h3><p>${f[1]}</p></div><span class="bg">↗</span></a></li>`,
+    `<li class="rv" data-d="${i * 0.08}"><div class="feature-row"><span class="n">0${i + 1}</span><div class="tx"><h3>${f[0]}</h3><p>${f[1]}</p></div><span class="bg" aria-hidden="true"></span></div></li>`,
 ).join("");
 $("#pp").innerHTML = P.map(
   (p, i) =>
