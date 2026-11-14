@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en" data-theme="day">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>AGOS — Urban Waterway Intelligence, Powered by AI</title>
+    <meta
+      name="description"
+      content="AGOS fuses computer vision, ultrasonic telemetry, and live weather data to give LGUs real-time visibility into drainage systems."
+    />
+    <meta name="theme-color" content="#04141b" />
+    <link rel="icon" href="assets/logo.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div id="ld">
+      <div class="c">
+        <b><img class="lgi" alt="" />AGOS</b>
+        <p>Urban waterway intelligence, powered by AI.</p>
+      </div>
+      <div class="drop-scene" aria-hidden="true">
+        <span class="drop-surface"></span>
+        <span class="drop-ripple"></span>
+        <span class="drop-ripple"></span>
+        <svg class="drop-shape" viewBox="0 0 40 48" focusable="false">
+          <path d="M20 2C16 9 5 20 5 30a15 15 0 0 0 30 0C35 20 24 9 20 2Z" />
+        </svg>
+      </div>
+      <div class="bar">
+        <div
+          class="progress-ring"
+          id="lp"
+          role="progressbar"
+          aria-label="Loading progress"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <span class="progress-value">
+            <span id="ln">00</span>
+            <small>%</small>
+          </span>
+        </div>
+        <em>Loading</em>
+      </div>
+    </div>
+
+    <header id="hd" class="rv" data-d=".15">
+      <div class="shell hw">
+        <button class="brand" data-go="home" aria-label="AGOS home">
+          <img class="lg lgi" alt="" />AGOS
+        </button>
+        <ul class="nav">
+          <li><button data-go="home" aria-current="page">Home</button></li>
+          <li><button data-go="pipeline">Architecture</button></li>
+          <li><button data-go="apps">Apps</button></li>
+          <li><button data-go="features">Features</button></li>
+          <li><button data-modal>Contact</button></li>
+        </ul>
+        <div class="hr2">
+          <button
+            class="theme-toggle"
+            id="tg"
+            type="button"
+            aria-label="Switch to night mode"
+            aria-pressed="false"
+          >
+            <span>Night mode</span><i aria-hidden="true"></i>
+          </button>
+          <button class="chip mb" id="mb">☰ <span>Menu</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="home">
+        <canvas id="bg" aria-hidden="true"></canvas
+        ><canvas id="fx" aria-hidden="true"></canvas>
+        <div class="vg"></div>
+        <div class="wm rv" data-d=".3" aria-hidden="true">AGOS</div>
+        <div class="shell hero">
+          <div class="hl">
+            <span class="eb rv" data-d=".2">Urban Waterway Intelligence</span>
+            <h1
+              data-l="Seeing floods|before they rise,|powered by AI."
+              data-d=".25"
+              data-s=".12"
+            ></h1>
+            <p class="lead rv" data-d=".5">
+              AGOS brings live water-level readings, camera insights, and
+              weather data together, helping LGUs spot flood risks early and
+              coordinate a faster response.
+            </p>
+            <div class="cta rv" data-d=".75">
+              <a
+                class="pill"
+                href="https://youtu.be/VbG8k9SJYh0?si=z2PGuvRIf23DFa7d"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Watch Demo <i>↗</i></a
+              ><button class="pill o" data-go="apps">Explore Apps</button>
+            </div>
+          </div>
+          <div class="hrt">
+            <div class="hc rv" data-d=".4">
+              <div id="hcard">
+                <div class="ht"><img class="lgi" alt="" /></div>
+                <div class="hp">
+                  <div class="hs" id="hs"></div>
+                  <div class="hb">
+                    <div class="dots" id="dots"></div>
+                    <div class="ar">
+                      <button id="pv" aria-label="Previous">←</button
+                      ><button id="nx" aria-label="Next">→</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pt rv" data-d=".55">
+              <small>Powered by</small>
+              <ul id="pw"></ul>
+            </div>
+          </div>
+          <ul class="hero-flow rv" data-d="1.7" aria-label="AGOS capabilities">
+            <li>
+              <span class="flow-index">01</span>
+              <div>
+                <h2>Live water levels</h2>
+                <p>Continuous sensor readings</p>
+              </div>
+            </li>
+            <li>
+              <span class="flow-index">02</span>
+              <div>
+                <h2>Camera insights</h2>
+                <p>Drainage and debris detection</p>
+              </div>
+            </li>
+            <li>
+              <span class="flow-index">03</span>
+              <div>
+                <h2>Early flood alerts</h2>
+                <p>Weather-aware risk signals</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="scroll-band">
+        <div class="shell sb scroll-cue">
+          <span>Edge → Cloud → Action</span>
+          <span class="m">Vision AI + Ultrasonic Telemetry</span>
+          <span>Scroll to explore ↓</span>
+        </div>
+      </div>
+
+      <section id="about" data-scroll-fade>
+        <div class="shell ab">
+          <div class="about-copy">
+            <div class="about-mark" aria-hidden="true">
+              <img class="lgi" alt="" />
+            </div>
+            <p class="about-eyebrow"><span aria-hidden="true"></span>What we do</p>
+            <h2 class="wr" id="ah"></h2>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <ul class="shell bn" data-scroll-fade>
+          <li class="rv" data-d="0">
+            <div style="background: var(--sf)">Edge</div>
+          </li>
+          <li class="rv" data-d=".12">
+            <div
+              style="
+                background: linear-gradient(
+                  to bottom right,
+                  var(--a1),
+                  var(--a2)
+                );
+                color: #04141b;
+              "
+            >
+              Cloud
+            </div>
+          </li>
+          <li class="rv" data-d=".24">
+            <div
+              style="background: var(--pb); color: var(--pf); font-size: 3rem"
+            >
+              →
+            </div>
+          </li>
+          <li class="rv" data-d=".36">
+            <div
+              style="
+                background: color-mix(in srgb, var(--sf) 60%, transparent);
+                color: var(--mut);
+              "
+            >
+              Action
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="pipeline" data-scroll-fade>
+        <div class="shell pipeline-intro rv">
+          <span class="eb">Architecture</span>
+          <h2 class="lr" data-l="The AGOS Pipeline" data-d=".12"></h2>
+          <p class="sub">
+            A seamless flow from edge hardware to end-user mobile devices,
+            ensuring real-time reliability when seconds matter.
+          </p>
+        </div>
+        <div class="shell" style="padding-bottom: 5rem">
+          <div class="pn rv">
+            <div class="pp" id="pp"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="apps" class="sec" style="padding-top: 2.5rem">
+        <div class="shell">
+          <span class="eb rv">The AGOS Ecosystem</span>
+          <h2
+            class="t lr"
+            data-l="One intelligence layer.|Designed for every role."
+            data-d=".12"
+            style="margin-top: 1.25rem; max-width: 20ch"
+          ></h2>
+          <p class="sub rv" data-d=".2">
+            Three connected applications turn the same live waterway data into
+            the right tools for system operators, field responders, and
+            residents.
+          </p>
+          <div class="pg" id="pg"></div>
+        </div>
+      </section>
+
+      <section id="features" class="sec">
+        <div class="shell">
+          <span class="eb rv">Core Capabilities</span>
+          <h2
+            class="t lr"
+            data-l="Engineered for Resilience."
+            data-d=".12"
+            style="margin: 1.25rem 0 1rem; max-width: 16ch"
+          ></h2>
+          <p class="sub rv" data-d=".2" style="margin: 0 0 3.5rem">
+            A comprehensive system empowering LGU administrators, mobilizing
+            field personnel, and informing barangay residents with real-time
+            waterway infrastructure status.
+          </p>
+          <ul class="sr" id="sr"></ul>
+        </div>
+      </section>
+
+      <section
+        class="glance-section"
+        id="glance"
+        aria-labelledby="glance-title"
+        data-scroll-fade
+      >
+        <div class="shell">
+          <div class="glance-panel rv" data-d=".08">
+            <div class="glance-intro">
+              <span>AGOS AT A GLANCE</span>
+              <h2 id="glance-title">One waterway. Three connected apps.</h2>
+              <p>
+                Live readings and AI-assisted insights help communities and
+                response teams make clearer decisions.
+              </p>
+            </div>
+            <ul class="glance-stats" aria-label="AGOS system highlights">
+              <li><strong>LIVE</strong><span>Live readings</span></li>
+              <li><strong>AI</strong><span>Camera insights</span></li>
+              <li><strong>03</strong><span>Connected apps</span></li>
+              <li><strong>01</strong><span>Shared intelligence</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="shell">
+        <div class="fc">
+          <h2
+            class="lr"
+            data-l="See risk sooner. Respond faster."
+            data-d="0"
+            data-s=".1"
+          ></h2>
+          <button class="pill l rv" data-d=".15" data-modal>
+            Request a demo <i>↗</i>
+          </button>
+        </div>
+        <div class="fg">
+          <div class="rv" data-d=".08">
+            <span class="bd"><img class="lgi" alt="" />AGOS</span>
+            <p>Urban waterway intelligence, powered by AI.</p>
+          </div>
+          <div class="rv" data-d=".16">
+            <h4>Apps</h4>
+            <ul>
+              <li><a href="#apps">AGOS Admin</a></li>
+              <li><a href="#apps">AGOS Patrol</a></li>
+              <li><a href="#apps">AGOS Advisory</a></li>
+            </ul>
+          </div>
+          <div class="rv" data-d=".24">
+            <h4>Features</h4>
+            <ul id="ff"></ul>
+          </div>
+          <div class="rv" data-d=".32">
+            <h4>The AGOS Team</h4>
+            <ul class="team-list">
+              <li>Alea Grace Escala</li>
+              <li>Russel Cabigquez</li>
+              <li>Harlson Mark Gardose</li>
+              <li>Eric Grabriel Manabat</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lb rv" data-d=".4">
+          <span>© 2026 AGOS</span><span>Urban Waterway Intelligence</span>
+        </div>
+      </div>
+      <div class="fw" aria-hidden="true">AGOS</div>
+    </footer>
+
+    <div id="nv" class="ov" aria-hidden="true">
+      <div class="shell tp">
+        <span class="brand" style="cursor: default"
+          ><img class="lg lgi" alt="" />AGOS</span
+        ><button class="cl" id="nc">✕ Close</button>
+      </div>
+      <div class="shell mn"><ul id="nl"></ul></div>
+      <div class="shell bt">
+        <button data-modal style="color: rgba(255, 255, 255, 0.7)">
+          Request a demo →
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="md"
+      class="ov"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Request a demo"
+    >
+      <div class="pnl" id="pnl">
+        <button class="x" id="mx" aria-label="Close">✕</button>
+        <div class="hd2">
+          <span class="eb">Request a demo</span>
+          <h2>Tell us about your waterway.</h2>
+        </div>
+        <form id="fm">
+          <label>Name<input required placeholder="Your name" /></label
+          ><label
+            >Email<input
+              type="email"
+              required
+              placeholder="you@lgu.gov.ph" /></label
+          ><label
+            >Message<textarea
+              rows="4"
+              required
+              placeholder="Your LGU or barangay, and what you'd like to monitor."
+            ></textarea>
+          </label>
+          <div class="fr">
+            <span>We'll get back to you soon.</span
+            ><button class="pill" type="submit" id="sb2">
+              Send request <i>↗</i>
+            </button>
+          </div>
+        </form>
+        <div class="ok">
+          <div class="lo"><img class="lgi" alt="" /></div>
+          <h2 style="margin: 0; padding: 0">Request received</h2>
+          <p>Thanks for reaching out — we'll get back to you soon.</p>
+          <button class="pill" id="mc">Close <i>✕</i></button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.23/dist/lenis.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
