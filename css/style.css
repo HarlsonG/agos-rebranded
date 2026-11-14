@@ -1509,7 +1509,9 @@ h2.t {
   display: flex;
   align-items: center;
   gap: 1rem;
+  border-radius: 0.75rem;
   padding: 1.5rem;
+  transition: background-color 0.25s ease;
 }
 @media (min-width: 640px) {
   .sr .feature-row {
@@ -1584,11 +1586,20 @@ h2.t {
   place-items: center;
   background: var(--pb);
   color: var(--pf);
+  transition: background-color 0.25s ease;
 }
 @media (min-width: 640px) {
   .sr .bg {
     width: 3rem;
     height: 3rem;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .sr li:hover .feature-row {
+    background: color-mix(in srgb, var(--fg) 3%, var(--bg));
+  }
+  .sr li:hover .bg {
+    background: color-mix(in srgb, var(--pb) 90%, var(--bg));
   }
 }
 .glance-section {
