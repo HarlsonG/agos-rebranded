@@ -329,7 +329,7 @@ function paint(c, w, h, img, vis) {
   const g = c.createLinearGradient(0, 0, w, h);
   night
     ? (g.addColorStop(0, "#05161d"), g.addColorStop(1, "#0b3a47"))
-    : (g.addColorStop(0, "#eef8f9"), g.addColorStop(1, "#b7dde1"));
+    : (g.addColorStop(0, "#ffffff"), g.addColorStop(1, "#f5f7f8"));
   c.fillStyle = g;
   c.fillRect(0, 0, w, h);
   c.lineWidth = Math.max(1, w / 900);
@@ -344,7 +344,7 @@ function paint(c, w, h, img, vis) {
     }
     c.strokeStyle = night
       ? `rgba(47,216,196,${0.06 + (k % 5) * 0.04})`
-      : `rgba(10,143,156,${0.08 + (k % 5) * 0.04})`;
+      : `rgba(30,41,59,${0.02 + (k % 5) * 0.01})`;
     c.stroke();
   }
   const lg = innerWidth >= 1024,
@@ -357,7 +357,9 @@ function paint(c, w, h, img, vis) {
     rg.addColorStop(
       0,
       vis
-        ? "rgba(47,216,196,.26)"
+        ? night
+          ? "rgba(47,216,196,.16)"
+          : "rgba(255,255,255,.55)"
         : night
           ? "rgba(47,216,196,.12)"
           : "rgba(255,255,255,.5)",

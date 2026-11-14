@@ -590,7 +590,7 @@ img {
   isolation: isolate;
   overflow: hidden;
   border-radius: 0 0 2rem 2rem;
-  background: #c7dde0;
+  background: #f7f9fa;
 }
 #home canvas {
   position: absolute;
@@ -1595,11 +1595,17 @@ h2.t {
   }
 }
 @media (hover: hover) and (pointer: fine) {
-  .sr li:hover .feature-row {
-    background: color-mix(in srgb, var(--fg) 3%, var(--bg));
+  [data-theme="day"] .sr .feature-row:hover {
+    background: #e0e3e6;
   }
-  .sr li:hover .bg {
-    background: color-mix(in srgb, var(--pb) 90%, var(--bg));
+  [data-theme="night"] .sr .feature-row:hover {
+    background: #15222a;
+  }
+  [data-theme="day"] .sr .feature-row:hover .bg {
+    background: #536168;
+  }
+  [data-theme="night"] .sr .feature-row:hover .bg {
+    background: #c2ced1;
   }
 }
 .glance-section {
