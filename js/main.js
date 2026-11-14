@@ -138,8 +138,8 @@ $("#pg").innerHTML = A.map((a, i) => {
   const preview =
     i === 0
       ? `<div class="laptop-mock" aria-hidden="true"><div class="laptop-screen"><div class="laptop-screen-slot" data-preview-slot="agos-admin"><img src="assets/agos-admin-dashboard.png" alt=""></div></div><div class="laptop-base"></div></div>`
-      : `<div class="phone-mock" aria-hidden="true"><div class="phone-screen"><div class="phone-screen-slot" data-preview-slot="${i === 1 ? "agos-patrol" : "agos-advisory"}"><img src="assets/agos-${i === 1 ? "patrol" : "advisory"}-screen.png" alt=""></div></div></div><img src="${LOGO}" alt="" aria-hidden="true">`;
-  return `<article class="pc rv" data-d="${i * 0.09}"><div class="pm"><span>${a[0]} — 0${i + 1}</span></div><div class="pb"><h3>${a[1]}</h3><p>${a[2]}</p><div class="tg">${a[3].map((x) => `<span>${x}</span>`).join("")}</div><div class="tg s">${a[4].map((x) => `<span>${x}</span>`).join("")}</div><div><a class="pill l" href="${a[6]}" target="_blank" rel="noopener noreferrer">${a[5]} <i aria-hidden="true">↗</i></a></div></div>${preview}</article>`;
+      : `<div class="phone-mock" aria-hidden="true"><div class="phone-screen"><div class="phone-screen-slot" data-preview-slot="${i === 1 ? "agos-patrol" : "agos-advisory"}"><img src="assets/agos-${i === 1 ? "patrol" : "advisory"}-screen.png" alt=""></div></div></div>`;
+  return `<article class="pc rv" data-d="${i * 0.09}"><div class="pm"><span>${a[0]} — 0${i + 1}</span></div><div class="pb"><h3>${a[1]}</h3><p>${a[2]}</p><div class="tg">${a[3].map((x) => `<span>${x}</span>`).join("")}</div><div class="tg s">${a[4].map((x) => `<span>${x}</span>`).join("")}</div><div><a class="pill l" href="${a[6]}" target="_blank" rel="noopener noreferrer">${a[5]} <i aria-hidden="true">↗</i></a></div></div>${preview}<img class="app-watermark" src="${HC[i][2]}" alt="" aria-hidden="true"></article>`;
 }).join("");
 $("#sr").innerHTML = F.map(
   (f, i) =>
@@ -328,7 +328,7 @@ const SHOW_HERO_DEVICE = false,
 function paint(c, w, h, img, vis) {
   const g = c.createLinearGradient(0, 0, w, h);
   night
-    ? (g.addColorStop(0, "#05161d"), g.addColorStop(1, "#0b3a47"))
+    ? (g.addColorStop(0, "#000000"), g.addColorStop(1, "#000000"))
     : (g.addColorStop(0, "#ffffff"), g.addColorStop(1, "#f5f7f8"));
   c.fillStyle = g;
   c.fillRect(0, 0, w, h);
@@ -343,7 +343,7 @@ function paint(c, w, h, img, vis) {
       x ? c.lineTo(x, y) : c.moveTo(x, y);
     }
     c.strokeStyle = night
-      ? `rgba(47,216,196,${0.06 + (k % 5) * 0.04})`
+      ? `rgba(148,163,184,${0.04 + (k % 5) * 0.012})`
       : `rgba(30,41,59,${0.02 + (k % 5) * 0.01})`;
     c.stroke();
   }
@@ -358,11 +358,11 @@ function paint(c, w, h, img, vis) {
       0,
       vis
         ? night
-          ? "rgba(47,216,196,.16)"
-          : "rgba(255,255,255,.55)"
+          ? "rgba(148,163,184,.2)"
+          : "rgba(71,85,105,.22)"
         : night
-          ? "rgba(47,216,196,.12)"
-          : "rgba(255,255,255,.5)",
+          ? "rgba(148,163,184,.16)"
+          : "rgba(71,85,105,.18)",
     );
     rg.addColorStop(1, "rgba(255,255,255,0)");
     c.fillStyle = rg;
